@@ -1,0 +1,5 @@
+Breakpoint 1 at 0x400507: file ./add.c, line 8.
+A syntax error in expression, near `%rsp'.
+A syntax error in expression, near `%esp'.
+The target architecture is assumed to be i386
+quit
