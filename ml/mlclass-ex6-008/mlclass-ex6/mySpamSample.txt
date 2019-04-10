@@ -1,0 +1,11 @@
+Dear Shoeson,
+Your copy of Dr. Dobb's October Digital Issue is now available.
+
+. Read Now
+
+This issue of Dr. Dobb's Journal is devoted to mobile programming. We introduce you to Apple's new Swift programming language, discuss the perils of being the third-most-popular mobile platform, revisit SQLite on Android, and more!
+
+
+Thank You,
+
+Andrew Binstock
