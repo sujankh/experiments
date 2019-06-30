@@ -1,0 +1,843 @@
+clang++ -std=c++17 -stdlib=libc++ -O2 dot_product.cc -target x86_64-pc-linux-gnu -S -o dot_product.S
+llvm-mca-8 -mcpu=btver2 dot_product.S
+Iterations:        100
+Instructions:      39800
+Total Cycles:      36736
+Total uOps:        39800
+
+Dispatch Width:    2
+uOps Per Cycle:    1.08
+IPC:               1.08
+Block RThroughput: 199.0
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      1     1.00           *            pushq	%rbp
+ 1      1     1.00           *            pushq	%r15
+ 1      1     1.00           *            pushq	%r14
+ 1      1     1.00           *            pushq	%r12
+ 1      1     1.00           *            pushq	%rbx
+ 1      1     0.50                        subq	$16, %rsp
+ 1      1     0.50                        movl	$400, %edi
+ 1      1     0.50                        callq	_Znwm
+ 1      1     0.50                        movq	%rax, %rbx
+ 1      1     0.50                        movl	$400, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      0     0.50                        xorl	%esi, %esi
+ 1      1     0.50                        callq	memset
+ 1      1     0.50                        movl	$400, %edi
+ 1      1     0.50                        callq	_Znwm
+ 1      1     0.50                        movq	%rax, %r14
+ 1      1     0.50                        movl	$400, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      0     0.50                        xorl	%esi, %esi
+ 1      1     0.50                        callq	memset
+ 1      5     1.00    *                   movaps	.LCPI0_0(%rip), %xmm6
+ 1      1     1.00           *            movups	%xmm6, (%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_1(%rip), %xmm8
+ 1      1     1.00           *            movups	%xmm8, 16(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_2(%rip), %xmm4
+ 1      1     1.00           *            movups	%xmm4, 32(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_3(%rip), %xmm1
+ 1      1     1.00           *            movups	%xmm1, 48(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_4(%rip), %xmm3
+ 1      1     1.00           *            movups	%xmm3, 64(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_5(%rip), %xmm0
+ 1      1     1.00           *            movups	%xmm0, 80(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_6(%rip), %xmm2
+ 1      1     1.00           *            movups	%xmm2, 96(%rbx)
+ 1      1     0.50                        movaps	%xmm2, %xmm15
+ 1      5     1.00    *                   movaps	.LCPI0_7(%rip), %xmm2
+ 1      1     1.00           *            movups	%xmm2, 112(%rbx)
+ 1      1     0.50                        movaps	%xmm2, %xmm7
+ 1      5     1.00    *                   movaps	.LCPI0_8(%rip), %xmm2
+ 1      1     1.00           *            movups	%xmm2, 128(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_9(%rip), %xmm2
+ 1      1     1.00           *            movups	%xmm2, 144(%rbx)
+ 1      5     1.00    *                   movaps	.LCPI0_10(%rip), %xmm2
+ 1      1     1.00           *            movups	%xmm2, 160(%rbx)
+ 1      5     1.00    *                   movdqa	.LCPI0_11(%rip), %xmm14
+ 1      1     1.00           *            movdqu	%xmm14, 176(%rbx)
+ 1      5     1.00    *                   movdqa	.LCPI0_12(%rip), %xmm13
+ 1      1     1.00           *            movdqu	%xmm13, 192(%rbx)
+ 1      5     1.00    *                   movdqa	.LCPI0_13(%rip), %xmm12
+ 1      1     1.00           *            movdqu	%xmm12, 208(%rbx)
+ 1      5     1.00    *                   movdqa	.LCPI0_14(%rip), %xmm10
+ 1      1     1.00           *            movdqu	%xmm10, 224(%rbx)
+ 1      5     1.00    *                   movdqa	.LCPI0_15(%rip), %xmm5
+ 1      1     1.00           *            movdqu	%xmm5, 240(%rbx)
+ 1      1     1.00           *            movups	%xmm6, (%r14)
+ 1      5     1.00    *                   movdqa	.LCPI0_16(%rip), %xmm6
+ 1      1     1.00           *            movdqu	%xmm6, 256(%rbx)
+ 1      1     1.00           *            movups	%xmm8, 16(%r14)
+ 1      5     1.00    *                   movdqa	.LCPI0_17(%rip), %xmm8
+ 1      1     1.00           *            movdqu	%xmm8, 272(%rbx)
+ 1      1     1.00           *            movups	%xmm4, 32(%r14)
+ 1      5     1.00    *                   movdqa	.LCPI0_18(%rip), %xmm11
+ 1      1     1.00           *            movdqu	%xmm11, 288(%rbx)
+ 1      1     1.00           *            movups	%xmm1, 48(%r14)
+ 1      5     1.00    *                   movaps	.LCPI0_19(%rip), %xmm1
+ 1      1     1.00           *            movups	%xmm1, 304(%rbx)
+ 1      1     0.50                        movaps	%xmm1, %xmm4
+ 1      1     1.00           *            movups	%xmm3, 64(%r14)
+ 1      5     1.00    *                   movdqa	.LCPI0_20(%rip), %xmm9
+ 1      1     1.00           *            movdqu	%xmm9, 320(%rbx)
+ 1      1     1.00           *            movups	%xmm0, 80(%r14)
+ 1      5     1.00    *                   movaps	.LCPI0_21(%rip), %xmm0
+ 1      1     1.00           *            movups	%xmm0, 336(%rbx)
+ 1      1     0.50                        movaps	%xmm0, %xmm3
+ 1      5     1.00    *                   movaps	.LCPI0_22(%rip), %xmm0
+ 1      1     1.00           *            movups	%xmm0, 352(%rbx)
+ 1      1     0.50                        movaps	%xmm0, %xmm2
+ 1      5     1.00    *                   movaps	.LCPI0_23(%rip), %xmm0
+ 1      1     1.00           *            movups	%xmm0, 368(%rbx)
+ 1      1     0.50                        movaps	%xmm0, %xmm1
+ 1      5     1.00    *                   movaps	.LCPI0_24(%rip), %xmm0
+ 1      1     1.00           *            movups	%xmm0, 384(%rbx)
+ 1      1     1.00           *            movups	%xmm15, 96(%r14)
+ 1      1     1.00           *            movups	%xmm7, 112(%r14)
+ 1      5     1.00    *                   movaps	.LCPI0_8(%rip), %xmm15
+ 1      1     1.00           *            movups	%xmm15, 128(%r14)
+ 1      5     1.00    *                   movaps	.LCPI0_9(%rip), %xmm7
+ 1      1     1.00           *            movups	%xmm7, 144(%r14)
+ 1      5     1.00    *                   movaps	.LCPI0_10(%rip), %xmm7
+ 1      1     1.00           *            movups	%xmm7, 160(%r14)
+ 1      1     1.00           *            movdqu	%xmm14, 176(%r14)
+ 1      1     1.00           *            movdqu	%xmm13, 192(%r14)
+ 1      1     1.00           *            movdqu	%xmm12, 208(%r14)
+ 1      1     1.00           *            movdqu	%xmm10, 224(%r14)
+ 1      1     1.00           *            movdqu	%xmm5, 240(%r14)
+ 1      1     1.00           *            movdqu	%xmm6, 256(%r14)
+ 1      1     1.00           *            movdqu	%xmm8, 272(%r14)
+ 1      1     1.00           *            movdqu	%xmm11, 288(%r14)
+ 1      1     1.00           *            movups	%xmm4, 304(%r14)
+ 1      1     1.00           *            movdqu	%xmm9, 320(%r14)
+ 1      1     1.00           *            movups	%xmm3, 336(%r14)
+ 1      1     1.00           *            movups	%xmm2, 352(%r14)
+ 1      1     1.00           *            movups	%xmm1, 368(%r14)
+ 1      1     1.00           *            movups	%xmm0, 384(%r14)
+ 1      5     1.00    *                   movdqu	(%rbx), %xmm0
+ 1      5     1.00    *                   movdqu	(%r14), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm2
+ 1      2     1.00                        pmuludq	%xmm0, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm0
+ 1      2     1.00                        pmuludq	%xmm2, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        punpckldq	%xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	16(%rbx), %xmm0
+ 1      5     1.00    *                   movdqu	16(%r14), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      2     1.00                        pmuludq	%xmm0, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm0
+ 1      2     1.00                        pmuludq	%xmm3, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        punpckldq	%xmm0, %xmm2
+ 1      1     0.50                        paddd	%xmm1, %xmm2
+ 1      5     1.00    *                   movdqu	32(%rbx), %xmm0
+ 1      5     1.00    *                   movdqu	32(%r14), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm3
+ 1      2     1.00                        pmuludq	%xmm0, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm0
+ 1      2     1.00                        pmuludq	%xmm3, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        punpckldq	%xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	48(%rbx), %xmm0
+ 1      5     1.00    *                   movdqu	48(%r14), %xmm3
+ 1      1     0.50                        pshufd	$245, %xmm3, %xmm4
+ 1      2     1.00                        pmuludq	%xmm0, %xmm3
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm0
+ 1      2     1.00                        pmuludq	%xmm4, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        punpckldq	%xmm0, %xmm3
+ 1      1     0.50                        paddd	%xmm1, %xmm3
+ 1      1     0.50                        paddd	%xmm2, %xmm3
+ 1      5     1.00    *                   movdqu	64(%r14), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	64(%rbx), %xmm2
+ 1      2     1.00                        pmuludq	%xmm2, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm2
+ 1      2     1.00                        pmuludq	%xmm2, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        punpckldq	%xmm1, %xmm0
+ 1      5     1.00    *                   movdqu	80(%r14), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm2
+ 1      5     1.00    *                   movdqu	80(%rbx), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm4
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm1
+ 1      1     0.50                        punpckldq	%xmm1, %xmm4
+ 1      1     0.50                        paddd	%xmm0, %xmm4
+ 1      5     1.00    *                   movdqu	96(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm2
+ 1      5     1.00    *                   movdqa	.LCPI0_6(%rip), %xmm1
+ 1      2     1.00                        pmuludq	%xmm1, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm1
+ 1      2     1.00                        pmuludq	%xmm1, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm0
+ 1      1     0.50                        punpckldq	%xmm0, %xmm1
+ 1      1     0.50                        paddd	%xmm4, %xmm1
+ 1      1     0.50                        paddd	%xmm3, %xmm1
+ 1      5     1.00    *                   movdqu	112(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm2
+ 1      5     1.00    *                   movdqa	.LCPI0_7(%rip), %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm3, %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        punpckldq	%xmm2, %xmm0
+ 1      5     1.00    *                   movdqu	128(%rbx), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_8(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm2
+ 1      1     0.50                        paddd	%xmm0, %xmm2
+ 1      5     1.00    *                   movdqu	144(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_9(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm0
+ 1      1     0.50                        paddd	%xmm2, %xmm0
+ 1      5     1.00    *                   movdqu	160(%rbx), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_10(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm2
+ 1      1     0.50                        paddd	%xmm0, %xmm2
+ 1      1     0.50                        paddd	%xmm1, %xmm2
+ 1      5     1.00    *                   movdqu	176(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm1
+ 1      2     1.00                        pmuludq	%xmm14, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm14, %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        punpckldq	%xmm1, %xmm0
+ 1      5     1.00    *                   movdqu	192(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm3
+ 1      2     1.00                        pmuludq	%xmm13, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm13, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm1
+ 1      1     0.50                        paddd	%xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	208(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm3
+ 1      2     1.00                        pmuludq	%xmm12, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm12, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm0
+ 1      1     0.50                        paddd	%xmm1, %xmm0
+ 1      5     1.00    *                   movdqu	224(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm3
+ 1      2     1.00                        pmuludq	%xmm10, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm10, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm1
+ 1      1     0.50                        paddd	%xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	240(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm3
+ 1      2     1.00                        pmuludq	%xmm5, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm5, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm0
+ 1      1     0.50                        paddd	%xmm1, %xmm0
+ 1      1     0.50                        paddd	%xmm2, %xmm0
+ 1      5     1.00    *                   movdqu	256(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm2
+ 1      2     1.00                        pmuludq	%xmm6, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm6, %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        punpckldq	%xmm2, %xmm1
+ 1      5     1.00    *                   movdqu	272(%rbx), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      2     1.00                        pmuludq	%xmm8, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm8, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm2
+ 1      1     0.50                        paddd	%xmm1, %xmm2
+ 1      5     1.00    *                   movdqu	288(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm3
+ 1      2     1.00                        pmuludq	%xmm11, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm11, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm1
+ 1      1     0.50                        paddd	%xmm2, %xmm1
+ 1      5     1.00    *                   movdqu	304(%rbx), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_19(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm2
+ 1      1     0.50                        paddd	%xmm1, %xmm2
+ 1      5     1.00    *                   movdqu	320(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm3
+ 1      2     1.00                        pmuludq	%xmm9, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm9, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm4
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm1
+ 1      1     0.50                        punpckldq	%xmm1, %xmm4
+ 1      1     0.50                        paddd	%xmm2, %xmm4
+ 1      5     1.00    *                   movdqu	336(%rbx), %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm1, %xmm2
+ 1      5     1.00    *                   movdqa	.LCPI0_21(%rip), %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm1
+ 1      1     0.50                        pshufd	$245, %xmm3, %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm1, %xmm1
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        punpckldq	%xmm2, %xmm1
+ 1      1     0.50                        paddd	%xmm4, %xmm1
+ 1      1     0.50                        paddd	%xmm0, %xmm1
+ 1      5     1.00    *                   movdqu	352(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm2
+ 1      5     1.00    *                   movdqa	.LCPI0_22(%rip), %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm3, %xmm3
+ 1      2     1.00                        pmuludq	%xmm3, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        punpckldq	%xmm2, %xmm0
+ 1      5     1.00    *                   movdqu	368(%rbx), %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm2, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_23(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm2
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm2, %xmm2
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm2
+ 1      1     0.50                        paddd	%xmm0, %xmm2
+ 1      5     1.00    *                   movdqu	384(%rbx), %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm0, %xmm3
+ 1      5     1.00    *                   movdqa	.LCPI0_24(%rip), %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm0
+ 1      1     0.50                        pshufd	$245, %xmm4, %xmm4
+ 1      2     1.00                        pmuludq	%xmm4, %xmm3
+ 1      1     0.50                        pshufd	$232, %xmm0, %xmm0
+ 1      1     0.50                        pshufd	$232, %xmm3, %xmm3
+ 1      1     0.50                        punpckldq	%xmm3, %xmm0
+ 1      1     0.50                        paddd	%xmm2, %xmm0
+ 1      1     0.50                        paddd	%xmm1, %xmm0
+ 1      1     0.50                        pshufd	$78, %xmm0, %xmm1
+ 1      1     0.50                        paddd	%xmm0, %xmm1
+ 1      1     0.50                        pshufd	$229, %xmm1, %xmm0
+ 1      1     0.50                        paddd	%xmm1, %xmm0
+ 1      4     1.00                        movd	%xmm0, %r15d
+ 1      1     0.50                        movslq	%r15d, %rsi
+ 1      1     0.50                        movl	$_ZNSt3__14coutE, %edi
+ 1      1     0.50                        callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm
+ 1      1     0.50                        movq	%rax, %rbp
+ 1      5     1.00    *                   movq	(%rax), %rax
+ 1      5     1.00    *                   movq	-24(%rax), %rsi
+ 1      1     0.50                        addq	%rbp, %rsi
+ 1      1     0.50                        leaq	8(%rsp), %rdi
+ 1      1     0.50                        callq	_ZNKSt3__18ios_base6getlocEv
+ 1      1     0.50                        leaq	8(%rsp), %rdi
+ 1      1     0.50                        movl	$_ZNSt3__15ctypeIcE2idE, %esi
+ 1      1     0.50                        callq	_ZNKSt3__16locale9use_facetERNS0_2idE
+ 1      5     1.00    *                   movq	(%rax), %rcx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        movl	$10, %esi
+ 1      1     0.50    *                   callq	*56(%rcx)
+ 1      1     0.50                        movl	%eax, %r12d
+ 1      1     0.50                        leaq	8(%rsp), %rdi
+ 1      1     0.50                        callq	_ZNSt3__16localeD1Ev
+ 1      1     0.50                        movsbl	%r12b, %esi
+ 1      1     0.50                        movq	%rbp, %rdi
+ 1      1     0.50                        callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc
+ 1      1     0.50                        movq	%rbp, %rdi
+ 1      1     0.50                        callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv
+ 1      1     0.50                        movq	%r14, %rdi
+ 1      1     0.50                        callq	_ZdlPv
+ 1      1     0.50                        movq	%rbx, %rdi
+ 1      1     0.50                        callq	_ZdlPv
+ 1      1     0.50                        movl	%r15d, %eax
+ 1      1     0.50                        addq	$16, %rsp
+ 1      5     1.00    *                   popq	%rbx
+ 1      5     1.00    *                   popq	%r12
+ 1      5     1.00    *                   popq	%r14
+ 1      5     1.00    *                   popq	%r15
+ 1      5     1.00    *                   popq	%rbp
+ 1      4     1.00                  U     retq
+ 1      1     0.50                        movq	%rax, %rbp
+ 1      1     0.50                        jmp	.LBB0_10
+ 1      1     0.50                        movq	%rax, %rbp
+ 1      1     0.50                        leaq	8(%rsp), %rdi
+ 1      1     0.50                        callq	_ZNSt3__16localeD1Ev
+ 1      1     0.50                        jmp	.LBB0_9
+ 1      1     0.50                        movq	%rax, %rbp
+ 1      1     0.50                        movq	%r14, %rdi
+ 1      1     0.50                        callq	_ZdlPv
+ 1      1     0.50                        movq	%rbx, %rdi
+ 1      1     0.50                        callq	_ZdlPv
+ 1      1     0.50                        movq	%rbp, %rdi
+ 1      1     0.50                        callq	_Unwind_Resume
+
+
+Resources:
+[0]   - JALU0
+[1]   - JALU1
+[2]   - JDiv
+[3]   - JFPA
+[4]   - JFPM
+[5]   - JFPU0
+[6]   - JFPU1
+[7]   - JLAGU
+[8]   - JMul
+[9]   - JSAGU
+[10]  - JSTC
+[11]  - JVALU0
+[12]  - JVALU1
+[13]  - JVIMUL
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   
+27.50  27.50   -     13.00  13.00  154.01 174.99 78.00   -     55.00  50.00  101.50 101.50 50.00  
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   Instructions:
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rbp
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%r15
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%r14
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%r12
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rbx
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     subq	$16, %rsp
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$400, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_Znwm
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rbx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$400, %edx
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%esi, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	memset
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movl	$400, %edi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_Znwm
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %r14
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$400, %edx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%esi, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	memset
+ -      -      -      -     1.00    -     1.00   1.00    -      -      -      -      -      -     movaps	.LCPI0_0(%rip), %xmm6
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm6, (%rbx)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_1(%rip), %xmm8
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm8, 16(%rbx)
+ -      -      -      -     1.00    -     1.00   1.00    -      -      -      -      -      -     movaps	.LCPI0_2(%rip), %xmm4
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm4, 32(%rbx)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_3(%rip), %xmm1
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm1, 48(%rbx)
+ -      -      -      -     1.00    -     1.00   1.00    -      -      -      -      -      -     movaps	.LCPI0_4(%rip), %xmm3
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm3, 64(%rbx)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_5(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 80(%rbx)
+ -      -      -      -     1.00   0.01   0.99   1.00    -      -      -      -      -      -     movaps	.LCPI0_6(%rip), %xmm2
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 96(%rbx)
+ -      -      -      -     1.00   1.00    -      -      -      -      -      -      -      -     movaps	%xmm2, %xmm15
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_7(%rip), %xmm2
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 112(%rbx)
+ -      -      -     1.00    -     1.00    -      -      -      -      -      -      -      -     movaps	%xmm2, %xmm7
+ -      -      -      -     1.00   1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_8(%rip), %xmm2
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 128(%rbx)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_9(%rip), %xmm2
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 144(%rbx)
+ -      -      -      -     1.00   1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_10(%rip), %xmm2
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 160(%rbx)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_11(%rip), %xmm14
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm14, 176(%rbx)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_12(%rip), %xmm13
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm13, 192(%rbx)
+ -      -      -      -      -     0.99   0.01   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_13(%rip), %xmm12
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm12, 208(%rbx)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_14(%rip), %xmm10
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm10, 224(%rbx)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_15(%rip), %xmm5
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm5, 240(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm6, (%r14)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_16(%rip), %xmm6
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm6, 256(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm8, 16(%r14)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_17(%rip), %xmm8
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm8, 272(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm4, 32(%r14)
+ -      -      -      -      -     0.01   0.99   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_18(%rip), %xmm11
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm11, 288(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm1, 48(%r14)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_19(%rip), %xmm1
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm1, 304(%rbx)
+ -      -      -      -     1.00   1.00    -      -      -      -      -      -      -      -     movaps	%xmm1, %xmm4
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm3, 64(%r14)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_20(%rip), %xmm9
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm9, 320(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 80(%r14)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_21(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 336(%rbx)
+ -      -      -     1.00    -     1.00    -      -      -      -      -      -      -      -     movaps	%xmm0, %xmm3
+ -      -      -      -     1.00   1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_22(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 352(%rbx)
+ -      -      -      -     1.00   1.00    -      -      -      -      -      -      -      -     movaps	%xmm0, %xmm2
+ -      -      -     1.00    -      -     1.00   1.00    -      -      -      -      -      -     movaps	.LCPI0_23(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 368(%rbx)
+ -      -      -      -     1.00   1.00    -      -      -      -      -      -      -      -     movaps	%xmm0, %xmm1
+ -      -      -      -     1.00   1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_24(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 384(%rbx)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm15, 96(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm7, 112(%r14)
+ -      -      -     1.00    -      -     1.00   1.00    -      -      -      -      -      -     movaps	.LCPI0_8(%rip), %xmm15
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm15, 128(%r14)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_9(%rip), %xmm7
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm7, 144(%r14)
+ -      -      -      -     1.00   1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_10(%rip), %xmm7
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm7, 160(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm14, 176(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm13, 192(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm12, 208(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm10, 224(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm5, 240(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm6, 256(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm8, 272(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm11, 288(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm4, 304(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movdqu	%xmm9, 320(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm3, 336(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm2, 352(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm1, 368(%r14)
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movups	%xmm0, 384(%r14)
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	(%rbx), %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	(%r14), %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm0, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm2, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     punpckldq	%xmm0, %xmm1
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	16(%rbx), %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	16(%r14), %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm0, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm0, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	32(%rbx), %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	32(%r14), %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm0, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm0, %xmm1
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	48(%rbx), %xmm0
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	48(%r14), %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm3, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm0, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm0, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm3
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	64(%r14), %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	64(%rbx), %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm2, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm2, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm1, %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	80(%r14), %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm2
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	80(%rbx), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm4
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm1, %xmm4
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm4
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	96(%rbx), %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm2
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_6(%rip), %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm1, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm1, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm0, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm4, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm3, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	112(%rbx), %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm2
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_7(%rip), %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm3, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm2, %xmm0
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	128(%rbx), %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_8(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	144(%rbx), %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm3
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_9(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	160(%rbx), %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_10(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	176(%rbx), %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm14, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm14, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     punpckldq	%xmm1, %xmm0
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	192(%rbx), %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm13, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm13, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm1
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	208(%rbx), %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm12, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm12, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	224(%rbx), %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm10, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm10, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	240(%rbx), %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm5, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm5, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm0
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	256(%rbx), %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm6, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm6, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm2, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	272(%rbx), %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm8, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm8, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm2
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	288(%rbx), %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm11, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm11, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	304(%rbx), %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_19(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm2
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	320(%rbx), %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm9, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm9, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm1, %xmm4
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm4
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	336(%rbx), %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm1, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_21(%rip), %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm3, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm1, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     punpckldq	%xmm2, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     paddd	%xmm4, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm1
+ -      -      -      -      -     1.00    -     1.00    -      -      -     0.50   0.50    -     movdqu	352(%rbx), %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_22(%rip), %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm3, %xmm3
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm3, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     punpckldq	%xmm2, %xmm0
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	368(%rbx), %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm2, %xmm3
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_23(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm2, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm2
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm2
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqu	384(%rbx), %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm0, %xmm3
+ -      -      -      -      -      -     1.00   1.00    -      -      -     0.50   0.50    -     movdqa	.LCPI0_24(%rip), %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$245, %xmm4, %xmm4
+ -      -      -      -      -     1.00    -      -      -      -      -      -      -     1.00   pmuludq	%xmm4, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm0, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$232, %xmm3, %xmm3
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     punpckldq	%xmm3, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     paddd	%xmm2, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm0
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$78, %xmm0, %xmm1
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm0, %xmm1
+ -      -      -      -      -     1.00    -      -      -      -      -     0.50   0.50    -     pshufd	$229, %xmm1, %xmm0
+ -      -      -      -      -      -     1.00    -      -      -      -     0.50   0.50    -     paddd	%xmm1, %xmm0
+1.00    -      -     1.00    -     1.00    -      -      -      -      -      -      -      -     movd	%xmm0, %r15d
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movslq	%r15d, %rsi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZNSt3__14coutE, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEm
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rbp
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	(%rax), %rax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	-24(%rax), %rsi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     addq	%rbp, %rsi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     leaq	8(%rsp), %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNKSt3__18ios_base6getlocEv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     leaq	8(%rsp), %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZNSt3__15ctypeIcE2idE, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNKSt3__16locale9use_facetERNS0_2idE
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	(%rax), %rcx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$10, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	*56(%rcx)
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	%eax, %r12d
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     leaq	8(%rsp), %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt3__16localeD1Ev
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movsbl	%r12b, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbp, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE3putEc
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbp, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE5flushEv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%r14, %rdi
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZdlPv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZdlPv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	%r15d, %eax
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     addq	$16, %rsp
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rbx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%r12
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%r14
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%r15
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rbp
+0.50   0.50    -      -      -      -      -     1.00    -      -      -      -      -      -     retq
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rbp
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     jmp	.LBB0_10
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rbp
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     leaq	8(%rsp), %rdi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt3__16localeD1Ev
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     jmp	.LBB0_9
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rbp
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movq	%r14, %rdi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZdlPv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rdi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZdlPv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbp, %rdi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_Unwind_Resume

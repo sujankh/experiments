@@ -1,0 +1,95 @@
+clang++ -O2 loop_benchmark.cc -target x86_64-pc-linux-gnu -S -o loop_benchmark.S
+llvm-mca-8 -mcpu=btver2 loop_benchmark.S
+Iterations:        100
+Instructions:      2400
+Total Cycles:      4207
+Total uOps:        2500
+
+Dispatch Width:    2
+uOps Per Cycle:    0.59
+IPC:               0.57
+Block RThroughput: 12.5
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      1     1.00           *            pushq	%rbp
+ 1      1     1.00           *            pushq	%rbx
+ 1      1     1.00           *            pushq	%rax
+ 1      1     0.50                        movl	$100000, %ebp
+ 1      0     0.50                        xorl	%ebx, %ebx
+ 1      1     0.50                        callq	rand
+ 1      1     0.50                        cltq
+ 2      6     4.00                        imulq	$1717986919, %rax, %rcx
+ 1      1     0.50                        movq	%rcx, %rdx
+ 1      1     0.50                        shrq	$63, %rdx
+ 1      1     0.50                        sarq	$34, %rcx
+ 1      1     0.50                        addl	%edx, %ecx
+ 1      1     0.50                        addl	%ecx, %ecx
+ 1      2     1.00                        leal	(%rcx,%rcx,4), %ecx
+ 1      1     0.50                        subl	%ecx, %eax
+ 1      1     0.50                        cltq
+ 1      1     0.50                        addq	%rax, %rbx
+ 1      1     0.50                        addl	$-1, %ebp
+ 1      1     0.50                        jne	.LBB0_1
+ 1      1     0.50                        movl	%ebx, %eax
+ 1      1     0.50                        addq	$8, %rsp
+ 1      5     1.00    *                   popq	%rbx
+ 1      5     1.00    *                   popq	%rbp
+ 1      4     1.00                  U     retq
+
+
+Resources:
+[0]   - JALU0
+[1]   - JALU1
+[2]   - JDiv
+[3]   - JFPA
+[4]   - JFPM
+[5]   - JFPU0
+[6]   - JFPU1
+[7]   - JLAGU
+[8]   - JMul
+[9]   - JSAGU
+[10]  - JSTC
+[11]  - JVALU0
+[12]  - JVALU1
+[13]  - JVIMUL
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   
+9.00   9.00    -      -      -      -      -     3.00   4.00   4.00    -      -      -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   Instructions:
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rbp
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rbx
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rax
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -      -     movl	$100000, %ebp
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%ebx, %ebx
+0.33   0.67    -      -      -      -      -      -      -      -      -      -      -      -     callq	rand
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     cltq
+ -     1.00    -      -      -      -      -      -     4.00    -      -      -      -      -     imulq	$1717986919, %rax, %rcx
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rcx, %rdx
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     shrq	$63, %rdx
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -      -     sarq	$34, %rcx
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     addl	%edx, %ecx
+1.00    -      -      -      -      -      -      -      -      -      -      -      -      -     addl	%ecx, %ecx
+ -     1.00    -      -      -      -      -      -      -     1.00    -      -      -      -     leal	(%rcx,%rcx,4), %ecx
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     subl	%ecx, %eax
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -      -     cltq
+0.99   0.01    -      -      -      -      -      -      -      -      -      -      -      -     addq	%rax, %rbx
+1.00    -      -      -      -      -      -      -      -      -      -      -      -      -     addl	$-1, %ebp
+ -     1.00    -      -      -      -      -      -      -      -      -      -      -      -     jne	.LBB0_1
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -      -     movl	%ebx, %eax
+0.01   0.99    -      -      -      -      -      -      -      -      -      -      -      -     addq	$8, %rsp
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rbx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rbp
+0.68   0.32    -      -      -      -      -     1.00    -      -      -      -      -      -     retq
