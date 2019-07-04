@@ -1,0 +1,273 @@
+Iterations:        100
+Instructions:      11400
+Total Cycles:      23903
+Total uOps:        11400
+
+Dispatch Width:    2
+uOps Per Cycle:    0.48
+IPC:               0.48
+Block RThroughput: 57.0
+
+
+Instruction Info:
+[1]: #uOps
+[2]: Latency
+[3]: RThroughput
+[4]: MayLoad
+[5]: MayStore
+[6]: HasSideEffects (U)
+
+[1]    [2]    [3]    [4]    [5]    [6]    Instructions:
+ 1      1     0.50                        subq	$40, %rsp
+ 1      5     1.00    *                   movaps	.LCPI0_0(%rip), %xmm0
+ 1      1     1.00           *            movaps	%xmm0, (%rsp)
+ 1      5     1.00    *                   movaps	.LCPI0_1(%rip), %xmm0
+ 1      1     1.00           *            movaps	%xmm0, 16(%rsp)
+ 1      1     0.50                        movabsq	$85899345939, %rax
+ 1      1     1.00           *            movq	%rax, 32(%rsp)
+ 1      1     0.50                        movq	%rsp, %rdi
+ 1      1     0.50                        callq	_Z5printISt5arrayIiLm10EEEvRKT_
+ 1      0     0.50                        xorl	%eax, %eax
+ 1      1     0.50                        addq	$40, %rsp
+ 1      4     1.00                  U     retq
+ 1      1     1.00           *            pushq	%rbx
+ 1      1     0.50                        movq	%rdi, %rbx
+ 1      5     1.00    *                   movl	(%rdi), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	4(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	8(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	12(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	16(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	20(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	24(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	28(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	32(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movl	36(%rbx), %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSolsEi
+ 1      1     0.50                        movl	$.L.str, %esi
+ 1      1     0.50                        movl	$1, %edx
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      1     0.50                        callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ 1      5     1.00    *                   movq	_ZSt4cout(%rip), %rax
+ 1      5     1.00    *                   movq	-24(%rax), %rax
+ 1      5     1.00    *                   movq	_ZSt4cout+240(%rax), %rbx
+ 1      1     0.50                        testq	%rbx, %rbx
+ 1      1     0.50                        je	.LBB1_5
+ 1      4     1.00    *                   cmpb	$0, 56(%rbx)
+ 1      1     0.50                        je	.LBB1_3
+ 1      5     1.00    *                   movb	67(%rbx), %al
+ 1      1     0.50                        jmp	.LBB1_4
+ 1      1     0.50                        movq	%rbx, %rdi
+ 1      1     0.50                        callq	_ZNKSt5ctypeIcE13_M_widen_initEv
+ 1      5     1.00    *                   movq	(%rbx), %rax
+ 1      1     0.50                        movq	%rbx, %rdi
+ 1      1     0.50                        movl	$10, %esi
+ 1      1     0.50    *                   callq	*48(%rax)
+ 1      1     0.50                        movsbl	%al, %esi
+ 1      1     0.50                        movl	$_ZSt4cout, %edi
+ 1      1     0.50                        callq	_ZNSo3putEc
+ 1      1     0.50                        movq	%rax, %rdi
+ 1      5     1.00    *                   popq	%rbx
+ 1      1     0.50                        jmp	_ZNSo5flushEv
+ 1      1     0.50                        callq	_ZSt16__throw_bad_castv
+ 1      1     1.00           *            pushq	%rax
+ 1      1     0.50                        movl	$_ZStL8__ioinit, %edi
+ 1      1     0.50                        callq	_ZNSt8ios_base4InitC1Ev
+ 1      1     0.50                        movl	$_ZNSt8ios_base4InitD1Ev, %edi
+ 1      1     0.50                        movl	$_ZStL8__ioinit, %esi
+ 1      1     0.50                        movl	$__dso_handle, %edx
+ 1      5     1.00    *                   popq	%rax
+ 1      1     0.50                        jmp	__cxa_atexit
+
+
+Resources:
+[0]   - JALU0
+[1]   - JALU1
+[2]   - JDiv
+[3]   - JFPA
+[4]   - JFPM
+[5]   - JFPU0
+[6]   - JFPU1
+[7]   - JLAGU
+[8]   - JMul
+[9]   - JSAGU
+[10]  - JSTC
+[11]  - JVALU0
+[12]  - JVALU1
+[13]  - JVIMUL
+
+
+Resource pressure per iteration:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   
+39.50  39.50   -     1.00   1.00   1.99   2.01   21.00   -     5.00   2.00    -      -      -     
+
+Resource pressure by instruction:
+[0]    [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]    [9]    [10]   [11]   [12]   [13]   Instructions:
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     subq	$40, %rsp
+ -      -      -      -     1.00   0.99   0.01   1.00    -      -      -      -      -      -     movaps	.LCPI0_0(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movaps	%xmm0, (%rsp)
+ -      -      -     1.00    -     1.00    -     1.00    -      -      -      -      -      -     movaps	.LCPI0_1(%rip), %xmm0
+ -      -      -      -      -      -     1.00    -      -     1.00   1.00    -      -      -     movaps	%xmm0, 16(%rsp)
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movabsq	$85899345939, %rax
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     movq	%rax, 32(%rsp)
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rsp, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_Z5printISt5arrayIiLm10EEEvRKT_
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     xorl	%eax, %eax
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     addq	$40, %rsp
+0.50   0.50    -      -      -      -      -     1.00    -      -      -      -      -      -     retq
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rbx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rdi, %rbx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	(%rdi), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	4(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	8(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	12(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	16(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	20(%rbx), %esi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.49   0.51    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	24(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	28(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	32(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movl	36(%rbx), %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSolsEi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$.L.str, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$1, %edx
+ -      -      -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	_ZSt4cout(%rip), %rax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	-24(%rax), %rax
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	_ZSt4cout+240(%rax), %rbx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     testq	%rbx, %rbx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     je	.LBB1_5
+0.50   0.50    -      -      -      -      -     1.00    -      -      -      -      -      -     cmpb	$0, 56(%rbx)
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     je	.LBB1_3
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movb	67(%rbx), %al
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     jmp	.LBB1_4
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNKSt5ctypeIcE13_M_widen_initEv
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     movq	(%rbx), %rax
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rbx, %rdi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$10, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	*48(%rax)
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movsbl	%al, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZSt4cout, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSo3putEc
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movq	%rax, %rdi
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rbx
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     jmp	_ZNSo5flushEv
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZSt16__throw_bad_castv
+ -      -      -      -      -      -      -      -      -     1.00    -      -      -      -     pushq	%rax
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZStL8__ioinit, %edi
+0.51   0.49    -      -      -      -      -      -      -      -      -      -      -      -     callq	_ZNSt8ios_base4InitC1Ev
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZNSt8ios_base4InitD1Ev, %edi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$_ZStL8__ioinit, %esi
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     movl	$__dso_handle, %edx
+ -      -      -      -      -      -      -     1.00    -      -      -      -      -      -     popq	%rax
+0.50   0.50    -      -      -      -      -      -      -      -      -      -      -      -     jmp	__cxa_atexit
