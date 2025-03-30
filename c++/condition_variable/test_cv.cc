@@ -12,11 +12,11 @@ std::condition_variable cv;
 
 void data_preparation_thread()
 {
-  for(int i = 0; i < 500; ++i)
+  for(int i = 0; i < 5; ++i)
     {
       std::this_thread::sleep_for(std::chrono::milliseconds(std::rand() % 10));
       std::lock_guard<std::mutex> lk(m);
-      std::cout << "Push" << "\t";
+      std::cout << "Push" << std::endl;
       data_queue.push(i);
       cv.notify_one();
     }    
@@ -24,7 +24,7 @@ void data_preparation_thread()
 
 void data_processing_thread()
 {
-  for(int i = 0; i < 500; ++i)
+  for(int i = 0; i < 5; ++i)
     {
       std::unique_lock<std::mutex> lk(m);
       std::cout << "Waiting..." << "\t";
@@ -33,7 +33,7 @@ void data_processing_thread()
       std::cout << "Pop" << "\t";
       data_queue.pop();
       lk.unlock();
-      std::cout << data << "\t";
+      std::cout << data << std::endl;
     }
 }
 
@@ -51,11 +51,11 @@ int main()
 {
   std::thread t1(data_preparation_thread);
   std::thread t2(data_processing_thread);
-  std::thread t3(print_new_line);
+  //std::thread t3(print_new_line);
 
   t1.join();
   t2.join();
-  t3.join();
+  //t3.join();
 
   return 0;
 }
